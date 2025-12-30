@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Tatito Projects</title>
+
+<!-- COMMON POPUP CSS -->
+<style>
+.popup {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.6);
+  z-index: 9999;
+  overflow:auto;
+}
+.popup-content {
+  background: #fff;
+  width: 90%;
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 20px;
+  position: relative;
+}
+.close-btn {
+  position: absolute;
+  right: 15px;
+  top: 10px;
+  font-size: 26px;
+  cursor: pointer;
+}
+button {
+  padding: 10px 15px;
+  margin: 5px;
+  cursor: pointer;
+}
+</style>
+</head>
+
+<body>
+
+<h1>TATITO PROJECTS</h1>
+
+<!-- 🔘 BUTTONS -->
+<button onclick="openPopup('intVoicePopup')">International Voice</button>
+<button onclick="openPopup('intNonVoicePopup')">International Non Voice</button>
+<button onclick="openPopup('domVoicePopup')">Domestic Voice</button>
+<button onclick="openPopup('domNonVoicePopup')">Domestic Non Voice</button>
+<button onclick="openPopup('softwarePopup')">Software Projects</button>
+<button onclick="openPopup('softTechPopup')">Soft Technologies</button>
+<button onclick="openPopup('personalityPopup')">Personality Development</button>
+
+<!-- 📌 LOAD YOUR POPUPS FILE -->
+<div id="popupContainer"></div>
+
+<!-- COMMON JS -->
+<script>
+function openPopup(id){
+  document.getElementById(id).style.display = "block";
+}
+function closePopup(id){
+  document.getElementById(id).style.display = "none";
+}
+
+/* Load popups.html automatically */
+fetch("popups.html")
+  .then(res => res.text())
+  .then(data => document.getElementById("popupContainer").innerHTML = data);
+</script>
+
+</body>
+</html>
